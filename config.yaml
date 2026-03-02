@@ -1,0 +1,19 @@
+random_state: 18
+
+data:
+  path: "data/WA_Fn-UseC_-Telco-Customer-Churn.csv"
+  target: "Churn"
+
+costs:
+  fn_cost: 5000
+  fp_cost: 500
+
+training:
+  test_size: 0.15
+  val_size: 0.15
+  model_type: "logreg"   # later we can add "rf"
+  max_iter: 2000
+  class_weight: "balanced"
+
+threshold_search:
+  steps: 400
