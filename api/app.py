@@ -7,12 +7,19 @@ import pandas as pd
 # ✅ create app FIRST
 app = FastAPI(title="Cost-Optimized Churn API")
 
-# ✅ load model + threshold artifacts
-model = joblib.load("models/model.joblib")
+# load model + threshold artifacts (Render-safe paths)
+from pathlib import Path
 
-with open("models/threshold.json", "r") as f:
+BASE_DIR = Path(__file__).resolve().parent.parent  # project root
+
+MODEL_PATH = BASE_DIR / "models" / "model.joblib"
+THRESHOLD_PATH = BASE_DIR / "models" / "threshold.json"
+
+model = joblib.load(MODEL_PATH)
+
+with open(THRESHOLD_PATH, "r") as f:
     threshold_data = json.load(f)
-
+    
 threshold = threshold_data.get("best_threshold_cost", threshold_data.get("threshold"))
 if threshold is None:
     raise ValueError("threshold.json must contain 'threshold' (or 'best_threshold_cost')")
