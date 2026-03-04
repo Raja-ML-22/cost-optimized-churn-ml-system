@@ -13,6 +13,8 @@ This system identifies the **optimal threshold** that minimizes business loss by
 
 The trained model is deployed as a **FastAPI REST API** and hosted publicly so predictions can be accessed via HTTP requests.
 
+The system includes a trained machine learning model, cost-optimized decision threshold, and a production-style REST API deployed on the cloud.
+
 ---
 
 # Live Demo
@@ -77,7 +79,7 @@ Prediction Response (JSON)
 cost-optimized-churn-ml-system
 │
 ├── api/
-│   └── app.py                 # FastAPI application
+│   └── app.py
 │
 ├── src/
 │   ├── preprocessing.py
@@ -89,16 +91,12 @@ cost-optimized-churn-ml-system
 │   └── threshold.json
 │
 ├── metrics/
-│   └── evaluation results
 │
 ├── data/
-│   └── training dataset
 │
 ├── requirements.txt
 └── README.md
 ```
-
----
 
 # Machine Learning Pipeline
 
