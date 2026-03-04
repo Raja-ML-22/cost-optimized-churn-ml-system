@@ -27,6 +27,8 @@ https://churn-prediction-api-7zca.onrender.com/docs
 
 The Swagger interface allows users to test the model directly from the browser.
 
+You can directly send prediction requests and view responses using the interactive Swagger interface.
+
 ---
 
 # Problem Statement
@@ -54,13 +56,17 @@ The model selects the threshold that minimizes total expected cost.
 # System Architecture
 
 Client Request
-↓
+      │
+      ▼
 FastAPI REST API
-↓
-Loaded ML Model (`model.joblib`)
-↓
+      │
+      ▼
+ML Model (model.joblib)
+      │
+      ▼
 Threshold Optimization Logic
-↓
+      │
+      ▼
 Prediction Response (JSON)
 
 ---
@@ -137,8 +143,31 @@ The final model and threshold are stored as serialized artifacts.
 ---
 
 # API Usage
+## Health Check Endpoint
+
+To verify that the API service is running:
+
+GET /health
+
+Example:
+
+https://churn-prediction-api-7zca.onrender.com/health
+
+Response:
+
+{
+ "status": "ok"
+}
+
 
 ## Endpoint
+## API Endpoints
+
+| Method | Endpoint | Description |
+|------|------|------|
+| GET | / | API information |
+| GET | /health | Service health check |
+| POST | /predict | Predict customer churn |
 
 POST `/predict`
 
@@ -215,6 +244,15 @@ curl -X POST "https://churn-prediction-api-7zca.onrender.com/predict" \
 ```
 
 ---
+
+# Key Skills Demonstrated
+
+Machine Learning Model Development  
+Cost-Sensitive Decision Threshold Optimization  
+FastAPI REST API Development  
+Model Serialization and Deployment  
+Cloud Deployment using Render  
+End-to-End ML Pipeline Design
 
 # Future Improvements
 
