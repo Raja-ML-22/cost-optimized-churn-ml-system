@@ -13,7 +13,7 @@ This system identifies the **optimal threshold** that minimizes business loss by
 
 The trained model is deployed as a **FastAPI REST API** and hosted publicly so predictions can be accessed via HTTP requests.
 
-The system includes a trained machine learning model, cost-optimized decision threshold, and a production-style REST API deployed on the cloud.
+The system includes a trained machine learning model, **cost-optimized decision threshold**, and a **production-style REST API deployed on the cloud**.
 
 ---
 
@@ -44,7 +44,7 @@ However, prediction errors have different business consequences:
 | False Negative  | Losing a customer without intervention      |
 | False Positive  | Offering retention incentives unnecessarily |
 
-Since losing a customer is more expensive, this project optimizes the prediction threshold using **cost-based evaluation** instead of a fixed threshold.
+Since losing a customer is more expensive, this project optimizes the prediction threshold using **cost-based evaluation instead of a fixed threshold**.
 
 Example business cost:
 
@@ -57,6 +57,7 @@ The model selects the threshold that minimizes total expected cost.
 
 # System Architecture
 
+```
 Client Request
       │
       ▼
@@ -70,7 +71,9 @@ Threshold Optimization Logic
       │
       ▼
 Prediction Response (JSON)
+```
 
+---
 
 # Project Structure
 
@@ -96,6 +99,8 @@ cost-optimized-churn-ml-system
 ├── requirements.txt
 └── README.md
 ```
+
+---
 
 # Machine Learning Pipeline
 
@@ -140,11 +145,12 @@ The final model and threshold are stored as serialized artifacts.
 ---
 
 # API Usage
+
 ## Health Check Endpoint
 
 To verify that the API service is running:
 
-GET /health
+**GET /health**
 
 Example:
 
@@ -152,21 +158,23 @@ https://churn-prediction-api-7zca.onrender.com/health
 
 Response:
 
+```json
 {
  "status": "ok"
 }
+```
 
+---
 
-## Endpoint
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|------|------|------|
-| GET | / | API information |
-| GET | /health | Service health check |
-| POST | /predict | Predict customer churn |
+| Method | Endpoint | Description            |
+| ------ | -------- | ---------------------- |
+| GET    | /        | API information        |
+| GET    | /health  | Service health check   |
+| POST   | /predict | Predict customer churn |
 
-POST `/predict`
+---
 
 ## Request Example
 
@@ -193,6 +201,8 @@ POST `/predict`
  "TotalCharges": 350.5
 }
 ```
+
+---
 
 ## Response Example
 
@@ -244,12 +254,14 @@ curl -X POST "https://churn-prediction-api-7zca.onrender.com/predict" \
 
 # Key Skills Demonstrated
 
-Machine Learning Model Development  
-Cost-Sensitive Decision Threshold Optimization  
-FastAPI REST API Development  
-Model Serialization and Deployment  
-Cloud Deployment using Render  
-End-to-End ML Pipeline Design
+* Machine Learning Model Development
+* Cost-Sensitive Decision Threshold Optimization
+* FastAPI REST API Development
+* Model Serialization and Deployment
+* Cloud Deployment using Render
+* End-to-End ML Pipeline Design
+
+---
 
 # Future Improvements
 
@@ -265,7 +277,7 @@ Possible extensions for this project include:
 
 # Author
 
-Raja
+**Raja**
 Artificial Intelligence & Machine Learning Student
 Francis Xavier Engineering College
 
