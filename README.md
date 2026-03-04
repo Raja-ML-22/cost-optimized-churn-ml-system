@@ -71,7 +71,6 @@ Threshold Optimization Logic
       ▼
 Prediction Response (JSON)
 
----
 
 # Project Structure
 
