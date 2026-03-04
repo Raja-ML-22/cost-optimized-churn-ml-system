@@ -19,7 +19,7 @@ model = joblib.load(MODEL_PATH)
 
 with open(THRESHOLD_PATH, "r") as f:
     threshold_data = json.load(f)
-    
+
 threshold = threshold_data.get("best_threshold_cost", threshold_data.get("threshold"))
 if threshold is None:
     raise ValueError("threshold.json must contain 'threshold' (or 'best_threshold_cost')")
@@ -72,3 +72,6 @@ def predict(customer: Customer):
         "threshold_used": float(threshold),
         "prediction": pred
     }
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
