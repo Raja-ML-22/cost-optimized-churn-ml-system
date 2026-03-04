@@ -45,3 +45,28 @@ Returns:
 - ## Live Demo
 - ✅ API: https://churn-prediction-api-7zca.onrender.com/
 - ✅ Docs (Swagger): https://churn-prediction-api-7zca.onrender.com/docs
+
+- ## Quick Test (curl)
+curl -X POST "https://churn-prediction-api-7zca.onrender.com/predict" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "gender":"Female",
+    "SeniorCitizen":0,
+    "Partner":"Yes",
+    "Dependents":"No",
+    "tenure":5,
+    "PhoneService":"Yes",
+    "MultipleLines":"No",
+    "InternetService":"DSL",
+    "OnlineSecurity":"No",
+    "OnlineBackup":"Yes",
+    "DeviceProtection":"No",
+    "TechSupport":"No",
+    "StreamingTV":"No",
+    "StreamingMovies":"No",
+    "Contract":"Month-to-month",
+    "PaperlessBilling":"Yes",
+    "PaymentMethod":"Electronic check",
+    "MonthlyCharges":75.2,
+    "TotalCharges":350.5
+  }'
