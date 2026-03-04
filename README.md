@@ -1,66 +1,43 @@
-# Cost-Optimized Churn ML System (Production Style)
+# Cost Optimized Churn Prediction System
 
-This repository implements a production-style churn decision system:
-- `src/train.py` trains and saves a model
-- cost-optimized threshold selection on validation set
-- `src/predict.py` loads artifacts and predicts on new customer files
+## Overview
+This project builds a machine learning system to predict customer churn and optimize the decision threshold to minimize business loss.
 
-## Business Objective
-Minimize business loss:
-- False Negative (missed churn): ₹5000
-- False Positive (unnecessary retention offer): ₹500
+## Problem Statement
+Customer churn prediction helps companies identify customers who are likely to stop using their service. Instead of using the default probability threshold (0.5), this system optimizes the threshold based on business cost.
 
-Total Cost = FP*500 + FN*5000
+## Project Structure
+api/ – FastAPI application for prediction  
+src/ – ML pipeline modules (preprocessing, training, prediction)  
+models/ – Serialized trained model  
+metrics/ – Model evaluation metrics  
+data/ – Dataset used for training  
 
-## Setup
-```bash
-pip install -r requirements.txt
+## ML Pipeline
+1. Data preprocessing
+2. Feature engineering
+3. Model training
+4. Threshold optimization
+5. API-based prediction
 
-## ✅ How to Run (Reproduce Results)
+## Models Used
+- Logistic Regression
+- Random Forest
 
-### 1) Create virtual environment
-python -m venv .venv
+## Technologies
+- Python
+- Pandas
+- Scikit-learn
+- FastAPI
 
-### 2) Activate
-# PowerShell
-.\.venv\Scripts\Activate.ps1
+## API Endpoint
+POST `/predict`
 
-### 3) Install dependencies
-pip install -r requirements.txt
+Returns:
+- churn probability
+- optimized threshold
+- final prediction
 
-### 4) Train model + generate metrics
-python src/train.py
-
-### 5) Predict (optional)
-python src/predict.py
-
-## 📊 Final Results (Cost Optimized)
-
-- ROC-AUC: 0.855
-- PR-AUC: 0.654
-- Recall: 0.98
-- Precision: 0.35
-- Business Cost (Test): 270000
-
-Threshold optimized for business cost, not F1/accuracy.
-
-## 🏗 Project Structure
-
-cost-optimized-churn-ml-system/
-│
-├── data/
-├── src/
-│   ├── train.py
-│   ├── predict.py
-│   ├── preprocess.py
-│
-├── models/
-│   ├── model.joblib
-│   ├── threshold.json
-│
-├── metrics/
-│   ├── metrics.json
-│
-├── requirements.txt
-└── README.md
-
+## Future Improvements
+- Deploy the model API for public access
+- Add monitoring and logging
