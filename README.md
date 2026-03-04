@@ -1,3 +1,9 @@
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Model-orange)
+![Deployment](https://img.shields.io/badge/Deployment-Render-purple)
+![Status](https://img.shields.io/badge/API-Live-success)
+
 # Cost-Optimized Customer Churn Prediction System
 
 ## Overview
