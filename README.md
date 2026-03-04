@@ -41,3 +41,7 @@ Returns:
 ## Future Improvements
 - Deploy the model API for public access
 - Add monitoring and logging
+
+- ## Live Demo
+- ✅ API: https://churn-prediction-api-7zca.onrender.com/
+- ✅ Docs (Swagger): https://churn-prediction-api-7zca.onrender.com/docs
